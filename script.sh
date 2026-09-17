@@ -7,4 +7,10 @@ if [ $# -eq 0 ]; then
         exit 1
 fi
 
-echo "$(grep -rH "$cadena" /home)"
+res="$(grep -rH "$cadena" /home)"
+if [ -z "$res" ]; then
+	echo "No se encontro ninguna coincidencia"
+	exit 1
+fi
+
+echo "$res"
